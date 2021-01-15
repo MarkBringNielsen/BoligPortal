@@ -1,0 +1,19 @@
+{
+    "apartments": [
+        {
+            "street": "",
+            "district" : "",
+            "rent": "",
+            "aconto": "",
+            "total": "",
+            "size": "",
+            "rooms": "",
+            "floor": "",
+            "distance_to_OB": "",
+            "coordinates": "",
+            "created" : "",
+            "id": "",
+            "link" : ""
+        }
+    ]
+}
