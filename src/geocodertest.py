@@ -4,7 +4,7 @@ import requests
 import json
 
 locator = Nominatim(user_agent='myGeocoder')
-apartment = locator.geocode('Odense, Vestre Stationsvej')
+apartment = locator.geocode('Overgade, 5000 Odense, Odense C')
 OB = locator.geocode('Odense, Roesskovsvej')
 
 r = requests.get(f"http://router.project-osrm.org/route/v1/car/{apartment.longitude},{apartment.latitude};{OB.longitude},{OB.latitude}?overview=false")

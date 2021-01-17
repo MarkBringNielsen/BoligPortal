@@ -28,8 +28,12 @@ for apartment in apartments:
 
     driver.get(link)
 
-    street = driver.find_element_by_xpath('.//div[@class="css-76suba-Text-Text"]').text.split(' - ')[0]
-    aprt_cord = locator.geocode(street)
+    street = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[5]/div[1]/div[1]/div[3]').text
+    print(street)
+    street = street.split(' - ')
+    street = street[0]
+    print(street)
+    aprt_cord = locator.geocode(street).point
 
     info_boxes = driver.find_element_by_xpath('.//div[@class="css-1t2kpzi-Flex-Flex"]')
 
@@ -38,8 +42,9 @@ for apartment in apartments:
     for info in info_boxes.find_elements_by_xpath('.//div[@class="css-1xppb8-Box-Box"]'):
 
         data = None
-        if not info.text == '-' and not info.text == '' :
+        if not info.text == '-' and not info.text == '' :           
             data = info.text
+            #split
 
         apartment_info.append(data)
 
