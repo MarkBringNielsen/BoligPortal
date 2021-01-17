@@ -1,2 +1,6 @@
 /.env
 .vscode
+src/chromedriver_location.py
+debug.log
+src/__pycache__/chromedriver_location.cpython-38.pyc
+debug.log
