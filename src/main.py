@@ -33,20 +33,26 @@ for apartment in apartments:
     street = street.split(' - ')
     street = street[0]
     print(street)
-    aprt_cord = locator.geocode(street).point
+    aprt_cord = locator.geocode(street)
+    aprt_cord = f'{aprt_cord.latitude},{aprt_cord.longitude}'
 
     info_boxes = driver.find_element_by_xpath('.//div[@class="css-1t2kpzi-Flex-Flex"]')
 
-    apartment_info = [aprt_cord]
+    apartment_info = []
 
     for info in info_boxes.find_elements_by_xpath('.//div[@class="css-1xppb8-Box-Box"]'):
 
         data = None
         if not info.text == '-' and not info.text == '' :           
             data = info.text
-            #split
+            if ',' in data:
+                data = data.split(',')
+            else:
+                data = data.split()
+            data = data[0]
 
         apartment_info.append(data)
+    apartment_info.append(aprt_cord)
 
     apartment_rows.append(apartment_info)
 
